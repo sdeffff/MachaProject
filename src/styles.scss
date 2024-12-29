@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Nimbus Sans Extended Black";
+    src: url(./assets/font/nimbus-sans-extended-black.ttf) format("truetype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    font-weight: normal;
+    src: url(./assets/font/Helvetica.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Helvetica Light';
+    font-weight: 300;
+    src: url(./assets/font/Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvetica School';
+    font-weight: 400;
+    src: url(./assets/font/HELVETICASCHOOL.TTF) format('truetype');
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Helvetica Light";
+
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+}
