@@ -1,5 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
+
+import { getWindow } from 'ssr-window';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -7,18 +9,16 @@ import { HeaderComponent } from "../header/header.component";
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements AfterViewInit{
-  public loaderStyles = "transform: scaleY(1)"; // Initialize height to full screen
-  public loaderLogoStyles = "opacity: 1";
+export class HomeComponent {
+  public loaderStyles = "transform: scaleY(0)"; // Initialize height to full screen
+  public loaderLogoStyles = "opacity: 0";
 
+  ngOnInit() {
+    const window = getWindow(); //to get window instance when ur on ssr
 
-  ngAfterViewInit() {
-    setTimeout(() => {
+    window.addEventListener("load", () => {
       this.loaderLogoStyles = "opacity: 0";
-    }, 1500);
-
-    setTimeout(() => {
       this.loaderStyles = "transform: scaleY(0)";
-    }, 2500);
+    })
   }
 }

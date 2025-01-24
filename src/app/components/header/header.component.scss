@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    background-color: #000;
+    background-color: #00000000;
     padding-block: 1rem;
 
     display: flex;
@@ -25,11 +25,11 @@ header {
                 li {
                     a {
                         color: #fff;
-                        font-size: 1.02rem;
+                        font-size: 1rem;
 
                         transition: .3s ease;
 
-                        letter-spacing: .8px;
+                        letter-spacing: 1px;
 
                         &:hover {
                             opacity: 1;
