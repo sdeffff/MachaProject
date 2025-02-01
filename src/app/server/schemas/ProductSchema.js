@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
-const JeansSchema = mongoose.Schema({
+const ProductSchema = mongoose.Schema({
+    category: {
+        type: String,
+        required: true,
+        enum: ["jeans", "jackets", "bags", "wallets"]
+    },
+
     name: {
         type: String,
         required: true
@@ -18,13 +24,13 @@ const JeansSchema = mongoose.Schema({
     },
 
     sizes: {
-        type: Array,
+        type: [String],
         required: true,
     },
 
-    picture: {
-        type: String,
-        required: true,
+    pictures: {
+        type: [String],
+        required: true
     }
 },
 {
@@ -32,6 +38,6 @@ const JeansSchema = mongoose.Schema({
 }
 )
 
-const Jeans = mongoose.model("Jeans", JeansSchema);
+const Product = mongoose.model("Product", ProductSchema);
 
-module.exports = Jeans; //exporting it
+module.exports = Product; //exporting it

@@ -1,0 +1,51 @@
+<product-header></product-header>
+
+<main>
+    <form>
+        <select
+        name="category"
+        #category="ngModel"
+        [(ngModel)]="chosenCategory">
+            <option value="0"></option>
+            <option value="bags">Bags</option>
+            <option value="wallets">Wallets</option>
+            <option value="jeans">Jeans</option>
+        </select>
+
+        <input 
+        type="text" 
+        placeholder="name"
+        name="name"
+        #name="ngModel"
+        [(ngModel)]="newProduct.name"
+        >
+        <input 
+        type="number" 
+        placeholder="price"
+        name="price"
+        #price="ngModel"
+        [(ngModel)]="newProduct.price"
+        >
+        <input 
+        type="number" 
+        placeholder="quantity"
+        name="quantity"
+        #quantity="ngModel"
+        [(ngModel)]="newProduct.quantity"
+        >
+        <input 
+        type="text" 
+        placeholder="sizes(divided by space pls)"
+        #sizes
+        >
+
+        <input 
+        type="file" 
+        #picture>
+
+        <input type="file"
+        #hoverPicture>
+
+        <button (click)="postNewProduct()">send</button>
+    </form>
+</main>

@@ -14,7 +14,7 @@ export class HomeComponent {
   public loaderLogoStyles = "opacity: 0";
 
   ngOnInit() {
-    const window = getWindow(); //to get window instance when ur on ssr
+    const window = getWindow(); //to get window instance when u r using ssr(angular)
 
     window.addEventListener("load", () => {
       this.loaderLogoStyles = "opacity: 0";

@@ -4,21 +4,22 @@ const express = require('express');
 const cors = require("cors");
 
 //Routers:
-const jeansRouter = require("./routes/jeansRoutes");
-
-// const asd = import("../../../dist/macha-proj")
+const serverRouter = require("./routes/serverRouter");
 
 const uri = "mongodb+srv://maksympavlii:HAwezxCHyOixEERB@machacluster.7qowc.mongodb.net/Macha?retryWrites=true&w=majority&appName=MachaCluster";
 
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }))
 
-app.use("/products/jeans", jeansRouter);
+//APIs for products pages
+app.use("/products/", serverRouter);
 
 const PORT = 3000;
 
+//Connecting to database
 mongoose.connect(uri)
     .then(() => {
         console.log('Connected to MongoDB Atlas');

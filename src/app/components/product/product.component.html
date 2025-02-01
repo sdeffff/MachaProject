@@ -1,0 +1,14 @@
+<section>
+    <product-header></product-header>
+
+    <main>
+        <ul *ngFor="let prod of products">
+            <li>
+                {{prod.name}}
+                {{prod.price}}
+                {{prod.sizes}}
+                <img src={{prod.picture}} alt="">
+            </li>
+        </ul>
+    </main>
+</section>
