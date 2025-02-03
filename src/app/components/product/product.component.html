@@ -4,10 +4,13 @@
     <main>
         <ul *ngFor="let prod of products">
             <li>
+                <div 
+                class="product-image"
+                [ngStyle]="{'background-image': 'url(' + prod.pictures[0] + ')'}">
+              </div>
                 {{prod.name}}
                 {{prod.price}}
                 {{prod.sizes}}
-                <img src={{prod.picture}} alt="">
             </li>
         </ul>
     </main>

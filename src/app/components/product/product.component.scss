@@ -1,5 +1,16 @@
 section {
     main {
         padding-top: 6rem;
+
+        ul {
+            li {
+                div {
+                    width: 200px;
+                    height: 200px;
+                    background-position: center;
+                    background-size: cover;
+                }
+            }
+        }
     }
 }

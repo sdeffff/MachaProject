@@ -1,4 +1,4 @@
-type imgType = string | undefined;
+type imgType = string[] | undefined;
 
 export interface productModel {
     category: string,
@@ -6,5 +6,5 @@ export interface productModel {
     price: number,
     quantity: number,
     sizes: string[],
-    pictures: imgType[],
+    pictures: imgType,
 }

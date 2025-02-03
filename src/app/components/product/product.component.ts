@@ -1,7 +1,7 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 //To handle data from the server:
-import { NgIf, NgFor, } from '@angular/common';
+import { NgIf, NgFor, NgStyle } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 //ActivatedRoute to get info about current route:
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ import { ProductService } from '../../services/productServices/product.service';
 @Component({
   selector: 'app-jeans',
   standalone: true,
-  imports: [HttpClientModule, NgIf, NgFor, ProductHeaderComponent, FormsModule],
+  imports: [HttpClientModule, NgIf, NgFor, ProductHeaderComponent, FormsModule, NgStyle],
   providers: [ProductService],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
