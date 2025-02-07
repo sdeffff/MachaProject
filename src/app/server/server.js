@@ -19,7 +19,7 @@ app.use("/products/", serverRouter);
 
 const PORT = 3000;
 
-//Connecting to database
+//Connecting to database using mongoose
 mongoose.connect(uri)
     .then(() => {
         console.log('Connected to MongoDB Atlas');

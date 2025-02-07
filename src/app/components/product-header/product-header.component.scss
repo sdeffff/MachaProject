@@ -12,27 +12,48 @@ header {
 
     padding: .75rem 5rem;
 
+    z-index: 99;
+
+    a {
+        img {
+            width: 200px;
+        }
+    }
+
     ul {
         display: flex;
         align-items: center;
 
         &:nth-child(2) {
-            gap: 1rem;
+            gap: 2rem;
         }
-
+ 
         &:nth-child(3) {
             gap: .5rem;
         }
 
         li {
             a {
-                font-size: 1.05rem;
+                font-size: .925rem;
+                letter-spacing: 2px;
+
                 color: #000;
                 text-transform: uppercase;
+
+                transition: .2s ease;
             }
 
             img {
                 width: 1.75rem;
+            }
+        }
+
+        &:last-child {
+            li {
+                a {
+                    font-size: .9rem;
+                    color: #7a7a7a;
+                }
             }
         }
     }

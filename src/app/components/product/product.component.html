@@ -2,15 +2,28 @@
     <product-header></product-header>
 
     <main>
-        <ul *ngFor="let prod of products">
-            <li>
-                <div 
-                class="product-image"
-                [ngStyle]="{'background-image': 'url(' + prod.pictures[0] + ')'}">
-              </div>
-                {{prod.name}}
-                {{prod.price}}
-                {{prod.sizes}}
+        <ul>
+            <li *ngFor="let prod of products let i = index">
+                <a href=""
+                (mouseover)="onMouseOver(i)"
+                (mouseleave)="onMouseLeave(i)"
+                >
+                    <div 
+                        class="product-image"
+                        [ngStyle]="{'background-image': 'url(' + getCurrentImg(i) + ')'}"
+                    >
+
+                        <div class="product-sizes">
+                            <p> {{prod.sizes.join(" - ")}} </p>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+                        <h2>{{prod.name}}</h2>
+                        <p>&#8364; {{prod.price}}</p>
+                    </div>
+                </a>
             </li>
         </ul>
     </main>

@@ -26,7 +26,6 @@ export class ProductService {
   /**
    * function to post new items to database
    * 
-   * @param category - also category name, decides where to push data 
    * @param product - data that we are pushing to database
    */
   postProduct(product: productModel):Observable<any> {
