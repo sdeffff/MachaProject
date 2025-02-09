@@ -4,7 +4,7 @@
     <main>
         <ul>
             <li *ngFor="let prod of products let i = index">
-                <a href=""
+                <a href="/products/{{this.category}}/{{prod._id}}"
                 (mouseover)="onMouseOver(i)"
                 (mouseleave)="onMouseLeave(i)"
                 >

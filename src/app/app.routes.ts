@@ -1,14 +1,17 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
-import { JeansComponent } from './components/product/product.component';
+import { CategoryPageComponent } from './components/category-page/category-page.component';
+import { ProductPageComponent } from './components/product-page/product-page.component';
+
 import { PanelComponent } from './admin/components/panel/panel.component';
 
-export const routes: Routes = [
-    {path: "", component: HomeComponent},
 
-    {path: "products/:category", component: JeansComponent},
-    {path: "admin", component: PanelComponent}
-    
-    
+export const routes: Routes = [
+    { path: "", component: HomeComponent},
+
+    { path: "products/:category", component: CategoryPageComponent},
+    { path: "products/:category/:id", component: ProductPageComponent},
+
+    { path: "admin", component: PanelComponent}
 ];

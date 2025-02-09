@@ -11,7 +11,7 @@ import { productModel } from '../../models/product.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class CategoryService {
   constructor(private http: HttpClient) {};
 
   /** 

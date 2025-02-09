@@ -8,13 +8,13 @@ import { ProductHeaderComponent } from '../../../components/product-header/produ
 //Models:
 import { productModel } from '../../../models/product.model';
 
-import { ProductService } from '../../../services/productServices/product.service';
+import { CategoryService } from '../../../services/category-services/category.service';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
   imports: [HttpClientModule, NgIf, NgFor, ProductHeaderComponent, FormsModule],
-  providers: [ProductService],
+  providers: [CategoryService],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
@@ -25,7 +25,7 @@ export class PanelComponent {
 
   protected chosenCategory!: string;
 
-  constructor(private productService: ProductService) {};
+  constructor(private categoryService: CategoryService) {};
 
   async imageBase64(img: Blob): Promise<string | ArrayBuffer | null> {
     return new Promise((res, rej) => {
@@ -80,7 +80,7 @@ export class PanelComponent {
 
     this.newProduct.category = this.chosenCategory;
 
-    this.productService.postProduct(this.newProduct).subscribe({
+    this.categoryService.postProduct(this.newProduct).subscribe({
       next: (res) => {
         console.log(res);
       },

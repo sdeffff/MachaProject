@@ -5,15 +5,15 @@
 }
 
 @font-face {
-    font-family: 'Helvetica';
-    font-weight: normal;
-    src: url(./assets/font/Helvetica.woff) format('woff');
+    font-family: 'Helvetica Light';
+    font-weight: 200;
+    src: url(./assets/font/Light.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'Helvetica Light';
+    font-family: 'Helvetica';
     font-weight: 300;
-    src: url(./assets/font/Light.ttf) format('truetype');
+    src: url(./assets/font/Helvetica.woff) format('woff');
 }
 
 @font-face {
