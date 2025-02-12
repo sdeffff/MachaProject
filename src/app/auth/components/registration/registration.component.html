@@ -1,1 +1,68 @@
-<p>registration works!</p>
+<main>
+    <section>
+        <h2>sign up</h2>
+        <form #formReg="ngForm" novalidate>
+            <div>
+                <label for="user_email">email</label>
+                <input 
+                type="email" 
+                id="user_email" 
+                required
+                name="email"
+                #email="ngModel"
+                [(ngModel)]="user.email">
+            </div>
+
+            <div>
+                <label for="user_pwd">password</label>
+                <input 
+                type="password" 
+                id="user_pwd" 
+                required
+                minlength="8"
+                maxlength="24"
+                name="pwd"
+                #pwd="ngModel"
+                [(ngModel)]="user.password">
+            </div>
+
+            <div>
+                <label for="user_confirm_pwd">confirm password</label>
+                <input 
+                type="password" 
+                id="user_confirm_pwd" 
+                required
+                minlength="8"
+                maxlength="24"
+                name="confirmPwd"
+                #confirmPwd="ngModel"
+                [(ngModel)]="user.confirmPwd">
+            </div>
+        
+            <div>
+                <label for="">your country</label>
+                <select 
+                id="user_country"
+                required
+                name="country"
+                #country="ngModel"
+                [(ngModel)]="user.country">
+                    <option value>-</option>
+                    <option value="0">Slovakia</option>
+                    <option value="1">Ukraine</option>
+                    <option value="2">Poland</option>
+                    <option value="3">USA</option>
+                </select>
+            </div>
+
+            <button type="submit"
+            (click)="onClikc()"
+            [disabled]="formReg.invalid"
+            >register</button>
+        </form>
+
+        <a href="/auth/login">have an account?</a>
+    </section>
+
+    <app-footer></app-footer>
+</main>
