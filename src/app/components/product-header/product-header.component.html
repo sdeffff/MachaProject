@@ -1,45 +1,47 @@
 <header>
-    <a href="/"><img src="../../../assets/imgs/logo-black.svg" alt=""></a>
-
-    <ul>
-        <li>
-            <a href="/" 
-            #headerLink 
-            (mouseover)="decreaseOpacity(0)"
-            (mouseleave)="increaseOpacity()"
-            >
-                new arrivals
-            </a>
-        </li>
-        <li>
-            <a href="/products/jeans" 
-            #headerLink 
-            (mouseover)="decreaseOpacity(1)"
-            (mouseleave)="increaseOpacity()"
-            >
-                jeans
-            </a>
-        </li>
-        <li>
-            <a href="/products/bags" 
-            #headerLink 
-            (mouseover)="decreaseOpacity(2)"
-            (mouseleave)="increaseOpacity()"
-            >
-                bags
-            </a>
-        </li>
-        <li>
-            <a href="/products/wallets" 
-            #headerLink 
-            (mouseover)="decreaseOpacity(3)"
-            (mouseleave)="increaseOpacity()"
-            >
-                wallets
-            </a>
-        </li>
-    </ul>
-
+    <div>
+        <ul>
+            <li>
+                <a href="/" 
+                #headerLink 
+                (mouseover)="decreaseOpacity(0)"
+                (mouseleave)="increaseOpacity()"
+                >
+                    new arrivals
+                </a>
+            </li>
+            <li>
+                <a href="/products/jeans" 
+                #headerLink 
+                (mouseover)="decreaseOpacity(1)"
+                (mouseleave)="increaseOpacity()"
+                >
+                    jeans
+                </a>
+            </li>
+        </ul>
+        <a href="/"><img src="../../../assets/imgs/logo-black.svg" alt=""></a>
+        <ul>
+            <li>
+                <a href="/products/bags" 
+                #headerLink 
+                (mouseover)="decreaseOpacity(2)"
+                (mouseleave)="increaseOpacity()"
+                >
+                    bags
+                </a>
+            </li>
+            <li>
+                <a href="/products/wallets" 
+                #headerLink 
+                (mouseover)="decreaseOpacity(3)"
+                (mouseleave)="increaseOpacity()"
+                >
+                    wallets
+                </a>
+            </li>
+        </ul>
+    </div>
     <ul>
         <li><a href="">CART ( 0 )</a></li>
     </ul>

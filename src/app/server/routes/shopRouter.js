@@ -35,7 +35,7 @@ router.get("/:category/:id", async (req, res) => {
 // GET all products in case category isn't provided
 router.get("/", async (req, res) => {
     try {
-        const items = await Product.find({}); //finding every product(without filtering)
+        const items = await Product.find({}).sort({ createdAt: -1 }); //finding every product(without filtering)
 
         res.status(200).json(items);
     } catch (err) {
@@ -44,9 +44,11 @@ router.get("/", async (req, res) => {
 });
 
 //POST API
+//Posting a new product, adding the new product to the pile of all products, because after we will be
+//able to find it by category
 router.post("/", async (req, res) => {
     try {   
-        const items = await Product.create(req.body);
+        const items = await Product.create(req.body); //req.body - data we have to post to database
         res.status(200).json(items);
     } catch (err) {
         console.log(err.message);

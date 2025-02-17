@@ -3,10 +3,10 @@
         <h2>sign up</h2>
         <form #formReg="ngForm" novalidate>
             <div>
-                <label for="user_email">email</label>
+                <label for="signup_user_email">email</label>
                 <input 
                 type="email" 
-                id="user_email" 
+                id="signup_user_email" 
                 required
                 name="email"
                 #email="ngModel"
@@ -14,10 +14,10 @@
             </div>
 
             <div>
-                <label for="user_pwd">password</label>
+                <label for="signup_user_pwd">password</label>
                 <input 
                 type="password" 
-                id="user_pwd" 
+                id="signup_user_pwd" 
                 required
                 minlength="8"
                 maxlength="24"
@@ -27,10 +27,10 @@
             </div>
 
             <div>
-                <label for="user_confirm_pwd">confirm password</label>
+                <label for="signup_user_confirm_pwd">confirm password</label>
                 <input 
                 type="password" 
-                id="user_confirm_pwd" 
+                id="signup_user_confirm_pwd" 
                 required
                 minlength="8"
                 maxlength="24"
@@ -40,18 +40,53 @@
             </div>
         
             <div>
-                <label for="">your country</label>
-                <select 
+                <label for="signup_user_country">your country</label>
+                <select
                 id="user_country"
                 required
                 name="country"
                 #country="ngModel"
                 [(ngModel)]="user.country">
                     <option value>-</option>
-                    <option value="0">Slovakia</option>
-                    <option value="1">Ukraine</option>
-                    <option value="2">Poland</option>
-                    <option value="3">USA</option>
+                    <option value="Albania">Albania</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Croatia">Croatia</option>
+                    <option value="Czechia">Czechia</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Estonia">Estonia</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Iceland">Iceland</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Latvia">Latvia</option>
+                    <option value="Liechtenstein">Liechtenstein</option>
+                    <option value="Lithuania">Lithuania</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Malta">Malta</option>
+                    <option value="Moldova">Moldova</option>
+                    <option value="Monaco">Monaco</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="North Macedonia">North Macedonia</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Romania">Romania</option>
+                    <option value="San Marino">San Marino</option>
+                    <option value="Serbia">Serbia</option>
+                    <option value="Slovakia">Slovakia</option>
+                    <option value="Slovenia">Slovenia</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="United Kingdom">United Kingdom</option>
                 </select>
             </div>
 

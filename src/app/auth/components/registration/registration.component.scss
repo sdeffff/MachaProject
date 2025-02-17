@@ -20,7 +20,13 @@ main {
     
         text-transform: uppercase;
     
+        z-index: 99;
+
         h2 {    
+            font-size: 1.75rem;
+
+            letter-spacing: 2px;
+
             font-weight: 100;
             pointer-events: none;
         }
@@ -39,17 +45,20 @@ main {
     
                 label {
                     font-size: .8rem;
+                    letter-spacing: 1.5px;
                     pointer-events: none;
                 }
     
                 input,
                 select {
-                    font-size: .925rem;
+                    font-size: 1rem;
+
+                    letter-spacing: 1.25px;
     
                     outline: none;
                     padding: .2rem .25rem;
     
-                    width: 17rem;
+                    width: 18rem;
                 }
             }
     

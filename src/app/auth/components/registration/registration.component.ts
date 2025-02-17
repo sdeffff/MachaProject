@@ -25,6 +25,6 @@ export class RegistrationComponent {
   }
 
   onClikc() {
-    console.log('aasd')
+    console.log(this.user.country);
   }
 }

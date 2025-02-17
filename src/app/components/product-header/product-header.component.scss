@@ -20,39 +20,46 @@ header {
         }
     }
 
-    ul {
+    div {
         display: flex;
-        align-items: center;
+        justify-content: center;
+        
+        width: 100%;
 
-        &:nth-child(2) {
-            gap: 2rem;
-        }
- 
-        &:nth-child(3) {
-            gap: .5rem;
-        }
+        gap: 4.5rem;
 
-        li {
-            a {
-                font-size: .825rem;
-                letter-spacing: 2px;
+        ul {
+            display: flex;
+            align-items: center;
 
-                color: #000;
-                text-transform: uppercase;
+            gap: 5rem;
 
-                transition: .2s ease;
-            }
-
-            img {
-                width: 1.7rem;
-            }
-        }
-
-        &:last-child {
             li {
                 a {
-                    font-size: .825rem;
+                    font-size: .925rem;
+                    letter-spacing: 2px;
+    
+                    color: #000;
+                    text-transform: uppercase;
+    
+                    transition: .2s ease;
+                }
+            }
+        }
+    }
+
+    ul {
+        &:last-child {
+            gap: .5rem;
+            
+            li {
+                width: max-content;
+
+                a {
+                    font-size: .9rem;
                     color: #6c6c6c;
+
+                    letter-spacing: 2px;
                 }
             }
         }
