@@ -12,27 +12,55 @@ header {
 
     padding: .75rem 5rem;
 
-    ul {
+    z-index: 99;
+
+    a {
+        img {
+            width: 200px;
+        }
+    }
+
+    div {
         display: flex;
-        align-items: center;
+        justify-content: center;
+        
+        width: 100%;
 
-        &:nth-child(2) {
-            gap: 1rem;
-        }
+        gap: 4.5rem;
 
-        &:nth-child(3) {
-            gap: .5rem;
-        }
+        ul {
+            display: flex;
+            align-items: center;
 
-        li {
-            a {
-                font-size: 1.05rem;
-                color: #000;
-                text-transform: uppercase;
+            gap: 5rem;
+
+            li {
+                a {
+                    font-size: .925rem;
+                    letter-spacing: 2px;
+    
+                    color: #000;
+                    text-transform: uppercase;
+    
+                    transition: .2s ease;
+                }
             }
+        }
+    }
 
-            img {
-                width: 1.75rem;
+    ul {
+        &:last-child {
+            gap: .5rem;
+            
+            li {
+                width: max-content;
+
+                a {
+                    font-size: .9rem;
+                    color: #6c6c6c;
+
+                    letter-spacing: 2px;
+                }
             }
         }
     }

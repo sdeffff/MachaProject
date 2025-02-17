@@ -2,8 +2,24 @@
     <ul class="outer_header_list">
         <li>
             <ul class="header_inner_list">
-                <li><a href="" (mouseover)="decreaseOpacity(0)" (mouseleave)="increaseOpacity()" #headerLink>NEW ARRIVALS</a></li>
-                <li><a href="/products/jeans" (mouseover)="decreaseOpacity(1)" (mouseleave)="increaseOpacity()" #headerLink>JEANS</a></li>
+                <li><a 
+                        href="" 
+                        #headerLink
+                        (mouseover)="decreaseOpacity(0)" 
+                        (mouseleave)="increaseOpacity()" 
+                    >
+                        NEW ARRIVALS
+                    </a>
+                </li>
+                <li><a 
+                        href="/products/jeans" 
+                        #headerLink
+                        (mouseover)="decreaseOpacity(1)" 
+                        (mouseleave)="increaseOpacity()" 
+                    >
+                        JEANS
+                    </a>
+                </li>
             </ul>
         </li>
         
@@ -11,8 +27,26 @@
         
         <li>
             <ul class="header_inner_list">
-                <li><a href="" (mouseover)="decreaseOpacity(2)" (mouseleave)="increaseOpacity()" #headerLink>BAGS</a></li>
-                <li><a href="" (mouseover)="decreaseOpacity(3)" (mouseleave)="increaseOpacity()" #headerLink>WALLETS</a></li>
+                <li>
+                    <a 
+                        href="" 
+                        #headerLink
+                        (mouseover)="decreaseOpacity(2)" 
+                        (mouseleave)="increaseOpacity()" 
+                    >
+                        BAGS
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="" 
+                        #headerLink
+                        (mouseover)="decreaseOpacity(3)" 
+                        (mouseleave)="increaseOpacity()" 
+                    >
+                        WALLETS
+                    </a>
+                </li>
             </ul>
         </li>
     </ul>

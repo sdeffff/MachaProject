@@ -11,7 +11,7 @@ import { productModel } from '../../models/product.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class CategoryService {
   constructor(private http: HttpClient) {};
 
   /** 
@@ -26,10 +26,9 @@ export class ProductService {
   /**
    * function to post new items to database
    * 
-   * @param category - also category name, decides where to push data 
    * @param product - data that we are pushing to database
    */
-  postProduct(category: string, product: productModel):Observable<any> {
-    return this.http.post<any>(apiUrl + category, product); //posting product data to server api
+  postProduct(product: productModel):Observable<any> {
+    return this.http.post<any>(apiUrl, product); //posting product data to server api
   }
 }

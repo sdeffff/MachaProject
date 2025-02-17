@@ -8,25 +8,24 @@ import { ProductHeaderComponent } from '../../../components/product-header/produ
 //Models:
 import { productModel } from '../../../models/product.model';
 
-import { ProductService } from '../../../services/productServices/product.service';
+import { CategoryService } from '../../../services/category-services/category.service';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
   imports: [HttpClientModule, NgIf, NgFor, ProductHeaderComponent, FormsModule],
-  providers: [ProductService],
+  providers: [CategoryService],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
 
 export class PanelComponent {
-  @ViewChild("picture") picture!: ElementRef;
-  @ViewChild("hoverPicture") hoverPicture!: ElementRef;
+  @ViewChild("pictures") pictures!: ElementRef;
   @ViewChild("sizes") newSizes!: ElementRef;
 
   protected chosenCategory!: string;
 
-  constructor(private productService: ProductService) {};
+  constructor(private categoryService: CategoryService) {};
 
   async imageBase64(img: Blob): Promise<string | ArrayBuffer | null> {
     return new Promise((res, rej) => {
@@ -38,27 +37,34 @@ export class PanelComponent {
     })
   }
 
-  async getImgToDB(inputImg: ElementRef): Promise<string | undefined> {
-    const res = inputImg.nativeElement.files[0];
+  async getImgToDB(inputImg: ElementRef): Promise<string[] | undefined> {
+    const arr = inputImg.nativeElement.files,
+          res = [];
 
-    if(!res) {
-      alert("Happened some error, please, try again");
+    for(let i = 0; i < arr.length; i++) {
+      let current = arr[i];
 
-      inputImg.nativeElement.value = "";
-      return;
+      if(!current) {
+        alert("Happened some error, please, try again");
+
+        inputImg.nativeElement.value = "";
+        return;
+      }
+
+      if(current.type !== "image/png" && current.type !== "image/jpeg") {
+        alert("Please, choose right image format");
+        inputImg.nativeElement.value = "";
+        return;
+      }  
+
+      res.push(await (this.imageBase64(current)) as string);
     }
 
-    if(res.type !== "image/png" && res.type !== "image/jpeg") {
-      alert("Please, choose right image format");
-      inputImg.nativeElement.value = "";
-      return;
-    }
-
-    return await (this.imageBase64(res)) as string;
+    return res;
   }
 
   protected newProduct: productModel = {
-    category: this.chosenCategory,
+    category: "",
     name: "",
     price: 0,
     quantity: 0,
@@ -70,10 +76,11 @@ export class PanelComponent {
   async postNewProduct() {
     this.newProduct.sizes = this.newSizes.nativeElement.value.split(" ");
     
-    this.newProduct.pictures.push(await this.getImgToDB(this.picture));
-    this.newProduct.pictures.push(await this.getImgToDB(this.hoverPicture));
+    this.newProduct.pictures = await this.getImgToDB(this.pictures);
 
-    this.productService.postProduct(this.chosenCategory, this.newProduct).subscribe({
+    this.newProduct.category = this.chosenCategory;
+
+    this.categoryService.postProduct(this.newProduct).subscribe({
       next: (res) => {
         console.log(res);
       },

@@ -1,0 +1,40 @@
+<main>
+    <section>
+        <h2>sign In</h2>
+
+        <form #formReg="ngForm">
+            <div>
+                <label for="signin_user_email">email</label>
+                <input 
+                id="signin_user_email"
+                type="email" 
+                required
+                name="email"
+                #email="ngModel"
+                [(ngModel)]="user.email"
+                >
+            </div>
+
+            <div>
+                <label for="signin_user_pwd">password</label>
+                <input 
+                id="signin_user_pwd"
+                type="password"
+                required
+                name="pwd"
+                #pwd="ngModel"
+                [(ngModel)]="user.password"
+                minlength="8"
+                maxlength="24"
+                >
+            </div>
+
+            <button type="submit"
+            [disabled]="formReg.invalid">login</button>
+        </form>
+    
+        <a href="/auth/registration">don't have an account?</a>
+    </section>
+
+    <app-footer></app-footer>
+</main>

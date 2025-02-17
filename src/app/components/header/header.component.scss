@@ -16,20 +16,26 @@ header {
         align-items: center;
         gap: 4.5rem;
 
+        a {
+            img {
+                width: 200px;
+            }
+        }
+
         li {
             ul {
                 display: flex;
                 align-items: center;
-                gap: 4.5rem;
+                gap: 5rem;
 
                 li {
                     a {
                         color: #fff;
-                        font-size: 1rem;
+                        font-size: .925rem;
 
                         transition: .3s ease;
 
-                        letter-spacing: 1px;
+                        letter-spacing: 2px;
 
                         &:hover {
                             opacity: 1;

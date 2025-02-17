@@ -1,5 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 
+import { HeaderService } from '../../services/headerService/header.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -8,19 +10,15 @@ import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @ViewChildren("headerLink") lists!: QueryList<ElementRef>;
+  @ViewChildren("headerLink") links!: QueryList<ElementRef>;
+  
+  constructor(private headerService: HeaderService) {};
 
-  decreaseOpacity(i: number) {
-    this.lists.forEach((el, index) => {
-      if(index === i) return;
-
-      el.nativeElement.style.opacity = ".65";
-    })
+  decreaseOpacity(i: number): void {
+    this.headerService.decreaseOpacity(i, this.links);
   }
 
-  increaseOpacity() {
-    this.lists.forEach((el) => {
-      el.nativeElement.style.opacity = "1";
-    })
+  increaseOpacity(): void {
+    this.headerService.increaseOpacity(this.links);
   }
 } 
