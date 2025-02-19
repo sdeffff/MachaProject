@@ -1,5 +1,4 @@
-import { Component, ElementRef, output, ViewChild } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgIf, NgFor, } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +12,7 @@ import { CategoryService } from '../../../services/category-services/category.se
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [HttpClientModule, NgIf, NgFor, ProductHeaderComponent, FormsModule],
+  imports: [NgIf, NgFor, ProductHeaderComponent, FormsModule],
   providers: [CategoryService],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'

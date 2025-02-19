@@ -24,6 +24,9 @@
                 name="pwd"
                 #pwd="ngModel"
                 [(ngModel)]="user.password">
+
+                <span [hidden]="!pwd.hasError('minlength')" class="error-msg">Password must be at least 8 symbols</span>
+                <span [hidden]="!pwd.hasError('maxlength')" class="error-msg">Password must be 24 symbols maximum</span>
             </div>
 
             <div>
@@ -91,7 +94,7 @@
             </div>
 
             <button type="submit"
-            (click)="onClikc()"
+            (click)="signUp()"
             [disabled]="formReg.invalid"
             >register</button>
         </form>

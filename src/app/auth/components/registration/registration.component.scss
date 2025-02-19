@@ -84,6 +84,14 @@ main {
             font-size: .925rem;
             letter-spacing: .9px;
             color: #000;
+
+            text-decoration: underline;
         }
     }
+}
+
+.error-msg {
+    font-family: 'Helvetica School';
+    font-size: .8rem;
+    color: #e74c3c;
 }

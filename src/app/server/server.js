@@ -4,7 +4,8 @@ const express = require('express');
 const cors = require("cors");
 
 //Routers:
-const shopRouter = require("././routes/shopRouter")
+const shopRouter = require("./routes/shopRouter");
+const authRouter = require("./routes/authRouter");
 
 const uri = "mongodb+srv://maksympavlii:HAwezxCHyOixEERB@machacluster.7qowc.mongodb.net/Macha?retryWrites=true&w=majority&appName=MachaCluster";
 
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }))
 
 //APIs for products pages
 app.use("/products/", shopRouter);
-// app.use("/auth/")
+app.use("/auth/", authRouter);
 
 const PORT = 3000;
 
