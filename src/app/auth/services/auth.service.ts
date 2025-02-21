@@ -28,7 +28,11 @@ export class AuthService {
     return this.http.post<any>(apiUrl, data, this.httpOptions);
   }
 
+  logout(): Observable<any> {
+    return this.http.post<any>(`${apiUrl}logout`, {}, this.httpOptions);
+  }
+
   checkUser(): Observable<any> {
-    return this.http.get<any>(apiUrl + "check-user", this.httpOptions);
+    return this.http.get<any>(`${apiUrl}check-user`, this.httpOptions);
   }
 }

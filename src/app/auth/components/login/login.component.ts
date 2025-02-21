@@ -25,14 +25,29 @@ export class LoginComponent {
     password: "",
   }
 
+  ngOnInit(): void {
+    this.authService.checkUser().subscribe({
+      next: (res) => {
+        if(res.isAuthenticated === true) this.router.navigate(["/"]);
+      },
+
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
   async login() {
     this.authService.login(this.user.email, this.user.password).subscribe({
       next: (res) => {
-        // this.router.navigate(["/"]);
+        this.router.navigate(["/"]);
 
         console.log(res);
       },
       error: (err) => {
+        this.user.email = "";
+        this.user.password = "";
+
         console.log(err);
       }
     })

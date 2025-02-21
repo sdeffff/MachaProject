@@ -95,7 +95,7 @@
 
             <button type="submit"
             (click)="signUp()"
-            [disabled]="formReg.invalid"
+            [disabled]="formReg.invalid || pwd.value !== confirmPwd.value"
             >register</button>
         </form>
 

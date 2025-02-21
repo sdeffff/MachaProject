@@ -12,6 +12,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 require("dotenv").config({path: "../../../src/env" + "/.env"});
 
+//POST API - login the user
 router.post("/login", async(req, res) => {
     try {
         const SECRET_KEY = process.env.SECRET_KEY;
@@ -21,12 +22,12 @@ router.post("/login", async(req, res) => {
         const user = await User.findOne({ email });
 
         if(!user) {
-            return res.status(401).json({error: "Invalid email or password"});
+            return res.status(404).json({error: "Email was not found"});
         }
 
         const isMatch = await bcrypt.compare(pwd, user.password);
         if(!isMatch) {
-            return res.status(401).json({error: "Passwords are not matching"})
+            return res.status(409).json({error: "Passwords are not matching"})
         }
 
         const token = jwt.sign({ id: user._id, status: user.status }, SECRET_KEY, { expiresIn: "1h" });
@@ -41,29 +42,18 @@ router.post("/login", async(req, res) => {
         }); 
         //secure: true, sameSite: "Strict" - for production
 
-        res.status(200).json({ message: "Login successful", token });
+        res.status(200).json({ message: "Login successful" });
     } catch (err) {
         res.status(500).json({error: err.message});
-    }
-})
-
-//GET API
-router.get("/", async(req, res) => {
-    try {
-        const users = await User.find({});
-
-        res.status(200).json(users);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
     }
 })
 
 //Check if the user is logged in:
 router.get("/check-user", authMiddleware, (req, res) => {
     res.status(200).json({ isAuthenticated: true, user: req.user });
-  });
+});
 
-//POST API
+//POST API - Sign Up a new user to app
 router.post("/", async (req, res) => {
     try  {
         const data = {
@@ -93,10 +83,27 @@ router.post("/", async (req, res) => {
 
         await User.create(data);
     
-        res.status(201)
+        res.status(201).json({ status: 201, message: "Signed Up successfully!" })
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+//GET API
+router.get("/", async(req, res) => {
+    try {
+        const users = await User.find({});
+
+        res.status(200).json(users);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+})
+
+//POST API - logout the user:
+router.post("/logout", async (req, res) => {
+    res.clearCookie("authToken");
+    res.status(200).json({ message: "Logged out successfully" });  
 })
 
 module.exports = router;

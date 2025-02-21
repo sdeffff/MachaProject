@@ -12,10 +12,12 @@ import { ProductHeaderComponent } from '../product-header/product-header.compone
 //Service:
 import { CategoryService } from '../../services/category-services/category.service';
 
+import { LogoutComponent } from '../../auth/components/logout/logout.component';
+
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [HttpClientModule, NgFor, ProductHeaderComponent, FormsModule, NgStyle],
+  imports: [HttpClientModule, NgFor, ProductHeaderComponent, FormsModule, NgStyle, LogoutComponent],
   providers: [CategoryService],
   templateUrl: './category-page.component.html',
   styleUrl: './category-page.component.scss'
