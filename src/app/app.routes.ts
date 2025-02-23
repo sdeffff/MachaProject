@@ -9,17 +9,23 @@ import { ProductPageComponent } from './components/product-page/product-page.com
 import { RegistrationComponent } from './auth/components/registration/registration.component';
 import { LoginComponent } from './auth/components/login/login.component';
 
+
+//Admin panel:
 import { PanelComponent } from './admin/components/panel/panel.component';
 
+//Not found component;
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent},
 
-    { path: "products/:category", component: CategoryPageComponent},
-    { path: "products/:category/:id", component: ProductPageComponent},
+    { path: "products/:category", component: CategoryPageComponent },
+    { path: "products/:category/:id", component: ProductPageComponent },
 
-    { path: "auth/registration", component: RegistrationComponent},
-    { path: "auth/login", component: LoginComponent},
+    { path: "auth/registration", component: RegistrationComponent },
+    { path: "auth/login", component: LoginComponent },
 
-    { path: "admin", component: PanelComponent}
+    { path: "admin", component: PanelComponent },
+
+    { path: "**", component: NotFoundComponent },
 ];

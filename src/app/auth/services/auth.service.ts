@@ -17,7 +17,7 @@ export class AuthService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
-    withCredentials: true
+    withCredentials: true //Using withCreadentials to pass cookies to server, and add session cookies for user
   };
 
   login(email: string, pwd: string): Observable<any> {
