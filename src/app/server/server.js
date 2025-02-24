@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const shopRouter = require("./routes/shopRouter");
 const authRouter = require("./routes/authRouter");
 
+require("dotenv").config();
+
 const uri = process.env.DB_ENV;
 
 const app = express(); 

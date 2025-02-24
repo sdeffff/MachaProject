@@ -10,7 +10,7 @@ const User = require("../schemas/UserSchema");
 
 const authMiddleware = require("../middleware/authMiddleware");
 
-require("dotenv").config({path: "../../../src/env" + "/.env"});
+require("dotenv").config();
 
 //POST API - login the user
 router.post("/login", async(req, res) => {
