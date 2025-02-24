@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //server url where are located all of the data from database
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 
 //interface
 import { productModel } from '../../models/product.model';
