@@ -22,6 +22,19 @@
     src: url(./assets/font/HELVETICASCHOOL.TTF) format('truetype');
 }
 
+@font-face {
+    font-family: 'Cousine';
+    font-weight: 400;
+    src: url('./assets/font/Cousine-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: 'Cousine';
+    font-weight: 600;
+    src: url('./assets/font/Cousine-Bold.ttf');
+}
+
 *,
 *::after,
 *::before {

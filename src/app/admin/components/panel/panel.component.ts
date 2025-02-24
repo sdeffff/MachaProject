@@ -1,20 +1,23 @@
-import { Component, ElementRef, output, ViewChild } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgIf, NgFor, } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { Router } from '@angular/router';
 
 import { ProductHeaderComponent } from '../../../components/product-header/product-header.component';
 
 //Models:
 import { productModel } from '../../../models/product.model';
 
+//Services:
 import { CategoryService } from '../../../services/category-services/category.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [HttpClientModule, NgIf, NgFor, ProductHeaderComponent, FormsModule],
-  providers: [CategoryService],
+  imports: [NgIf, NgFor, ProductHeaderComponent, FormsModule],
+  providers: [CategoryService, AuthService],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
@@ -25,7 +28,16 @@ export class PanelComponent {
 
   protected chosenCategory!: string;
 
-  constructor(private categoryService: CategoryService) {};
+  constructor(private categoryService: CategoryService, private authService: AuthService,
+              private router: Router) {};
+
+  ngOnInit() {
+    this.authService.checkUser().subscribe({
+      next: (res) => {
+        if(res.user.status !== "admin") this.router.navigate(["/"]);
+      },
+    })
+  }
 
   async imageBase64(img: Blob): Promise<string | ArrayBuffer | null> {
     return new Promise((res, rej) => {

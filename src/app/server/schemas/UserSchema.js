@@ -14,6 +14,13 @@ const UserSchema = mongoose.Schema({
     country: {
         type: String,
         required: true,
+    },
+
+    status: {
+        type: String,
+        enum: ["user", "moderator", "admin"],
+        default: "user",
+        required: true,
     }
 },
 {

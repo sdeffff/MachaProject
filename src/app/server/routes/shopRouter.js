@@ -10,9 +10,9 @@ router.get("/:category", async (req, res) => {
         const category = req.params.category; //getting the category name from url
 
         //finding all of the products by category name + sorting them by date (newest first)
-        const items = await Product.find({ category }).sort({ createdAt: -1 });
+        const item = await Product.find({ category }).sort({ createdAt: -1 });
         
-        res.status(200).json(items); //in case of success sending code 200 and the data itself
+        res.status(200).json(item); //in case of success sending code 200 and the data itself
     } catch(err) {
         res.status(500).json({ error: err });
     }
