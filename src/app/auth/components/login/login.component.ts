@@ -40,9 +40,8 @@ export class LoginComponent {
   async login() {
     this.authService.login(this.user.email, this.user.password).subscribe({
       next: (res) => {
-        this.router.navigate(["/"]);
-
-        console.log(res);
+        if(res.status === "admin") this.router.navigate(["/admin"])
+        else this.router.navigate(["/"]);
       },
       error: (err) => {
         this.user.email = "";

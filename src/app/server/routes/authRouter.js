@@ -42,7 +42,7 @@ router.post("/login", async(req, res) => {
         }); 
         //secure: true, sameSite: "Strict" - for production
 
-        res.status(200).json({ message: "Login successful" });
+        res.status(200).json({ message: "Login successful", status: user.status });
     } catch (err) {
         res.status(500).json({error: err.message});
     }
@@ -54,7 +54,7 @@ router.get("/check-user", authMiddleware, (req, res) => {
 });
 
 //POST API - Sign Up a new user to app
-router.post("/", async (req, res) => {
+router.post("/users", async (req, res) => {
     try  {
         const data = {
             email: req.body.email,
@@ -89,8 +89,8 @@ router.post("/", async (req, res) => {
     }
 });
 
-//GET API
-router.get("/", async(req, res) => {
+//GET API - get all of the users
+router.get("/users", async(req, res) => {
     try {
         const users = await User.find({});
 

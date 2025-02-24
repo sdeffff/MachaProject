@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   addNewUser(data: postRegisterData): Observable<any> {
-    return this.http.post<any>(apiUrl, data, this.httpOptions);
+    return this.http.post<any>(`${apiUrl}users`, data, this.httpOptions);
   }
 
   logout(): Observable<any> {
