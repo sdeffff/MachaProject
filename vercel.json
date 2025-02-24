@@ -1,0 +1,8 @@
+{
+    "build": {
+      "env": {
+        "NG_ENV_AUTH_URL": "@NG_ENV_AUTH_URL",
+        "NG_ENV_PRODUCT_URL": "@NG_ENV_PRODUCT_URL"
+      }
+    }
+  }
