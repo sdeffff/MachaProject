@@ -9,13 +9,15 @@ const cookieParser = require("cookie-parser");
 const shopRouter = require("./routes/shopRouter");
 const authRouter = require("./routes/authRouter");
 
-const uri = "mongodb+srv://maksympavlii:HAwezxCHyOixEERB@machacluster.7qowc.mongodb.net/Macha?retryWrites=true&w=majority&appName=MachaCluster";
+const uri = process.env.DB_ENV;
 
 const app = express(); 
 
 app.use(express.json({ limit: "10mb" })); 
 app.use(express.urlencoded({ limit: "10mb", extended: true })) 
 app.use(cookieParser());
+
+// const allowedOrigins = ["http://localhost:4200", ""];
 
 app.use(cors({
     origin: "http://localhost:4200", 

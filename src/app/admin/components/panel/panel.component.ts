@@ -35,7 +35,6 @@ export class PanelComponent {
     this.authService.checkUser().subscribe({
       next: (res) => {
         if(res.user.status !== "admin") this.router.navigate(["/"]);
-    
       },
     })
   }
