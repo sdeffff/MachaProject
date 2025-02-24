@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { apiUrl } from '../../../env/auth_api.environment';
+import { environment } from '../../../environments/environment';
 
 import { postRegisterData } from '../models/postRegisterData.model';
 
@@ -13,6 +13,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { };
 
+  private apiUrl = environment.authUrl;
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -21,18 +23,18 @@ export class AuthService {
   };
 
   login(email: string, pwd: string): Observable<any> {
-    return this.http.post<any>(`${apiUrl}login`, { email, pwd }, this.httpOptions);
+    return this.http.post<any>(`${this.apiUrl}login`, { email, pwd }, this.httpOptions);
   }
 
   addNewUser(data: postRegisterData): Observable<any> {
-    return this.http.post<any>(`${apiUrl}users`, data, this.httpOptions);
+    return this.http.post<any>(`${this.apiUrl}users`, data, this.httpOptions);
   }
 
   logout(): Observable<any> {
-    return this.http.post<any>(`${apiUrl}logout`, {}, this.httpOptions);
+    return this.http.post<any>(`${this.apiUrl}logout`, {}, this.httpOptions);
   }
 
   checkUser(): Observable<any> {
-    return this.http.get<any>(`${apiUrl}check-user`, this.httpOptions);
+    return this.http.get<any>(`${this.apiUrl}check-user`, this.httpOptions);
   }
 }

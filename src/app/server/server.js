@@ -21,14 +21,6 @@ app.use(cookieParser());
 
 const allowedOrigins = ["http://localhost:4200", "https://macha-project.vercel.app/"];
 
-// function (origin, callback) {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   }
-
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
@@ -36,10 +28,10 @@ app.use(cors({
         } else {
           callback(new Error("Not allowed by CORS"));
         }
-      }, 
+    }, 
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With'],
     exposedHeaders: ['Set-Cookie'],
 }));
 

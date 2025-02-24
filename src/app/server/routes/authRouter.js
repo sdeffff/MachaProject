@@ -4,7 +4,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const User = require("../schemas/UserSchema");
 
@@ -36,7 +36,7 @@ router.post("/login", async(req, res) => {
         res.cookie("authToken", token, { 
             httpOnly: true, 
             secure: process.env.NODE_ENV === "production", 
-            sameSite: "None",
+            sameSite: "Lax",
             path: "/",
             maxAge: 3600000,
         }); 
