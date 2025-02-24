@@ -36,6 +36,10 @@ export class PanelComponent {
       next: (res) => {
         if(res.user.status !== "admin") this.router.navigate(["/"]);
       },
+
+      error: (err) => {
+        this.router.navigate(["/"]);
+      }
     })
   }
 

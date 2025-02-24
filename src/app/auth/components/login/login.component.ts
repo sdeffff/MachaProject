@@ -47,7 +47,7 @@ export class LoginComponent {
         this.user.email = "";
         this.user.password = "";
 
-        console.log(err);
+        alert("Something went wrong, email or password is incorrect");
       }
     })
   }
