@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
-import { apiUrl } from '../../../../env/auth_api.environment';
 
 @Component({
   selector: 'app-logout',
